@@ -1,3 +1,9 @@
 Author: Kenton Small
-Purpose: Process web forms. See docs for usage.
-Provided under the MIT license (see the LICENSE file).
+
+Website: http://www.kentonsmall.com
+
+This gem processes web forms and emails the results to a specified user.
+
+See the USAGE file for an example.
+
+Provided under the MIT license (in the LICENSE file).

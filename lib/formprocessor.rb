@@ -1,24 +1,7 @@
 require 'net/smtp'
 require_relative 'required'
 require_relative 'mailer'
-# Process web forms based on the "values" Hash (typically cgi.params).
-# = Example Usage
-#	#!/usr/bin/ruby
-#	require 'cgi'
-#	require 'formprocessor'
-#	cgi = CGI.new
-#	puts cgi.header
-#	puts FormProcessor::Main(cgi.params).result
-# = Keywords
-# * _required_
-#		A CSV string. Check for the existence of these form fields.
-# * _mailto_
-#		If successful submission, mail results to this address. A valid SMTP server running on localhost is required.
-# * _redirect_
-#		Redirect to this URL upon successful submission.
-# = Return Values & Templating
-#	It is possible to template the results of the form submission by omitting the redirection key/value pair in the values Hash.
-#	If there are no errors, result will return nil. If there are errors, result will return a String containing those errors.
+# Process web forms and email the results based on the _values_ Hash (typically cgi.params).
 module FormProcessor
 	# The gem's logic handler.
 	class Main
