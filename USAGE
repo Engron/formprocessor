@@ -1,0 +1,33 @@
+= Example Usage
+== script.rb
+ #!/usr/bin/ruby
+ require 'cgi'
+ require 'formprocessor'
+ cgi = CGI.new
+ puts cgi.header
+ puts FormProcessor::Main(cgi.params).result
+
+== form.html
+ <form action="script.rb" method="post">
+ <input type="hidden" name="mailto" value="email@me.com" />
+ <input type="hidden" name="subject" value="A Test Form" />
+ <input type="hidden" name="required" value="email" />
+ <input type="hidden" name="redirect" value="http://www.kentonsmall.com" />
+ Email: <input type="text" name="email" />
+ <input type="submit" value="Submit" />
+ </form>
+
+= Keywords
+=== required
+ A CSV string. Check for the existence of these form fields.
+=== mailto
+ If successful submission, mail results to this address. A valid SMTP server running on localhost is required.
+=== redirect
+ Redirect to this URL upon successful submission.
+=== subject
+ The subject of the email/form.
+
+= Return Values & Templating
+It is possible to template the results of the form submission by omitting the redirection key/value pair in the values Hash.
+
+If there are no errors, @result will return nil. If there are errors, @result will return a String containing those errors.
